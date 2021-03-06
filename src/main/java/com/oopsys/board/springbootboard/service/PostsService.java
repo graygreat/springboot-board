@@ -1,0 +1,20 @@
+package com.oopsys.board.springbootboard.service;
+
+import com.oopsys.board.springbootboard.domain.posts.PostsRepository;
+import com.oopsys.board.springbootboard.web.dto.PostsSaveRequestDto;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RestController;
+
+@RequiredArgsConstructor
+@Service
+public class PostsService {
+
+    private PostsRepository postsRepository;
+
+    @Transactional
+    public Long save(PostsSaveRequestDto requestDto) {
+        return postsRepository.save(requestDto.toEntity()).getId();
+    }
+}
