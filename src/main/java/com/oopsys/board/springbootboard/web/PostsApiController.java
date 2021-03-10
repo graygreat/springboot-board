@@ -1,6 +1,7 @@
 package com.oopsys.board.springbootboard.web;
 
 import com.oopsys.board.springbootboard.service.PostsService;
+import com.oopsys.board.springbootboard.web.dto.PostsResponseDto;
 import com.oopsys.board.springbootboard.web.dto.PostsSaveRequestDto;
 import com.oopsys.board.springbootboard.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -21,5 +22,10 @@ public class PostsApiController {
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
         return postsService.update(id, requestDto);
+    }
+
+    @GetMapping("/api/v1/posts/{id}")
+    public PostsResponseDto findById(@PathVariable Long id) {
+        return postsService.findById(id);
     }
 }
