@@ -5,7 +5,6 @@ import com.oopsys.board.springbootboard.web.dto.PostsResponseDto;
 import com.oopsys.board.springbootboard.web.dto.PostsSaveRequestDto;
 import com.oopsys.board.springbootboard.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -28,4 +27,6 @@ public class PostsApiController {
     public PostsResponseDto findById(@PathVariable Long id) {
         return postsService.findById(id);
     }
+
+
 }
