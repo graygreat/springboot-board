@@ -1,7 +1,17 @@
 {{>layout/header}}
-
+<!-- 로그인 기능 영역 -->
+<div>
+    {{#userName}}
+        <span id="user">{{userName}}</span>님 환영합니다!
+        <a href="/logout" class="btn btn-danger active" role="button">로그아웃</a>
+    {{/userName}}
+</div>
+<br>
 <div>
     <a href="/posts/save" role="button" class="btn btn-primary">등록</a>
+    {{^userName}}
+        <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">구글 로그인</a>
+    {{/userName}}
 </div>
 <br>
 <!-- 목록 출력 영역 -->
