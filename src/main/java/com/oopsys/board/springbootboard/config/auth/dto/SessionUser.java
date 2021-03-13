@@ -3,8 +3,10 @@ package com.oopsys.board.springbootboard.config.auth.dto;
 import com.oopsys.board.springbootboard.domain.user.User;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 @Getter
-public class SessionUser {
+public class SessionUser implements Serializable {
     private String name;
     private String email;
     private String picture;
