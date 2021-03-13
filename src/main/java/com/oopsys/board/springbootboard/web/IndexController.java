@@ -1,5 +1,6 @@
 package com.oopsys.board.springbootboard.web;
 
+import com.oopsys.board.springbootboard.config.auth.LoginUser;
 import com.oopsys.board.springbootboard.config.auth.dto.SessionUser;
 import com.oopsys.board.springbootboard.service.PostsService;
 import com.oopsys.board.springbootboard.web.dto.PostsResponseDto;
@@ -8,21 +9,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
     private final PostsService postsService;
-    private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+
         if (user != null) {
             model.addAttribute("userName", user.getName());
         }
