@@ -1,4 +1,4 @@
-# clipboard: CRUD를 구현한 게시판
+# :clipboard: CRUD를 구현한 게시판
 
 ## 프로젝트 소개
 
