@@ -18,4 +18,4 @@ script: "./gradlew clean build"
 notifications:
   email:
     recipients:
-      - operasystem@naver.com
+      - operasystem6@naver.com
